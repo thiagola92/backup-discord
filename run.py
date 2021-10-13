@@ -42,7 +42,7 @@ def download_content(url, suffix='.gif'):
 
     print(url)
     response = requests.get(url)
-    with open(f"downloads/{name}", 'wb') as file:
+    with open(f"backup/{name}", 'wb') as file:
         file.write(response.content)
 
 
