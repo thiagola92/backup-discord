@@ -39,8 +39,12 @@ def download_content(url, suffix='.gif'):
 
     if not Path(path).suffix:
         return download_content(url + suffix)
+    
+    if Path(f"backup/{name}").exists():
+        return
 
     print(url)
+    
     response = requests.get(url)
     with open(f"backup/{name}", 'wb') as file:
         file.write(response.content)
